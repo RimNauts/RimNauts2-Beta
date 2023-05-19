@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Verse;
 
@@ -7,6 +8,7 @@ namespace RimNauts2 {
     public static class Assets {
         private static AssetBundle assets;
         public static Shader neo_shader;
+        public static Shader skybox_cube_shader;
         public static Dictionary<string, Texture2D> textures = new Dictionary<string, Texture2D>();
         public static Dictionary<string, Material> materials = new Dictionary<string, Material>();
         public static Dictionary<string, Color> texture_colors = new Dictionary<string, Color>();
@@ -15,6 +17,7 @@ namespace RimNauts2 {
         public static void init() {
             get_assets();
             neo_shader = get_asset("neo.shader", ShaderDatabase.WorldOverlayCutout);
+            skybox_cube_shader = get_asset("skyboxCube.shader", ShaderDatabase.WorldOverlayCutout);
             game_object_world_feature = Resources.Load<GameObject>("Prefabs/WorldText");
             foreach (var (type, object_holders) in Defs.Loader.object_holders) {
                 foreach (var object_holder in object_holders) {
@@ -58,10 +61,20 @@ namespace RimNauts2 {
             materials.Add(
                 "Skybox/Nebula Blue",
                 MaterialPool.MatFrom(
-                    "Skybox/Nebula Blue",
-                    ShaderDatabase.WorldOverlayCutout
+                    "Skybox/bkg1_top",
+                    skybox_cube_shader
                 )
             );
+
+            Cubemap cubemap = new Cubemap(width: 2048, TextureFormat.RGBA32, mipChain: false);
+            cubemap.SetPixels(get_pixels("Skybox/bkg1_top"), CubemapFace.PositiveY);
+            cubemap.SetPixels(get_pixels("Skybox/bkg1_bot"), CubemapFace.NegativeY);
+            cubemap.SetPixels(get_pixels("Skybox/bkg1_front"), CubemapFace.PositiveZ);
+            cubemap.SetPixels(get_pixels("Skybox/bkg1_back"), CubemapFace.NegativeZ);
+            cubemap.SetPixels(get_pixels("Skybox/bkg1_left"), CubemapFace.PositiveX);
+            cubemap.SetPixels(get_pixels("Skybox/bkg1_right"), CubemapFace.NegativeX);
+            cubemap.Apply();
+            materials["Skybox/Nebula Blue"].SetTexture("_Tex", cubemap);
         }
 
         private static void get_assets() {
@@ -125,6 +138,30 @@ namespace RimNauts2 {
             if (texture_colors.TryGetValue(path, out Color value)) return value;
             texture_colors[path] = average_color_from_texture(get_content<Texture2D>(path));
             return texture_colors[path];
+        }
+
+        private static Color[] get_pixels(string path) {
+            Texture2D tex = get_content<Texture2D>(path);
+            if (tex == null) return null;
+            // Create a temporary RenderTexture of the same size as the texture
+            RenderTexture tmp = RenderTexture.GetTemporary(
+                tex.width,
+                tex.height,
+                0,
+                RenderTextureFormat.Default,
+                RenderTextureReadWrite.Linear
+            );
+            Graphics.Blit(tex, tmp);
+            RenderTexture.active = tmp;
+            // Create a new readable Texture2D to copy the pixels to it
+            Texture2D myTexture2D = new Texture2D(tex.width, tex.height);
+            // Copy the pixels from the RenderTexture to the new Texture
+            myTexture2D.ReadPixels(new Rect(0, 0, tmp.width, tmp.height), 0, 0);
+            myTexture2D.Apply();
+            Color[] texColors = myTexture2D.GetPixels().Reverse().ToArray();
+            // Release the temporary RenderTexture
+            RenderTexture.ReleaseTemporary(tmp);
+            return texColors;
         }
 
         private static Color average_color_from_texture(Texture2D tex) {

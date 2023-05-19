@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 47845845
+CRC: 65023264
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: ff38c4068da689d77f4db483fc49900f
+    Hash: d88575584e6a0f3c2f0c0660e8c73196
   TypeTreeHash:
     serializedVersion: 2
     Hash: 7e9ee104d6bb707fb2602b751e6f78b1
@@ -12,5 +12,6 @@ ClassTypes:
 - Class: 48
   Script: {instanceID: 0}
 Assets:
-- Assets/neo.shader
+- Assets/shaders/neo.shader
+- Assets/shaders/skyboxCube.shader
 Dependencies: []
