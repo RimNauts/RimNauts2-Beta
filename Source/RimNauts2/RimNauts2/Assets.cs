@@ -61,18 +61,18 @@ namespace RimNauts2 {
             materials.Add(
                 "Skybox/Nebula Blue",
                 MaterialPool.MatFrom(
-                    "Skybox/bkg1_top",
+                    "Skybox/Up_Tex",
                     skybox_cube_shader
                 )
             );
 
-            Cubemap cubemap = new Cubemap(width: 2048, TextureFormat.RGBA32, mipChain: false);
-            cubemap.SetPixels(get_pixels("Skybox/bkg1_top"), CubemapFace.PositiveY);
-            cubemap.SetPixels(get_pixels("Skybox/bkg1_bot"), CubemapFace.NegativeY);
-            cubemap.SetPixels(get_pixels("Skybox/bkg1_front"), CubemapFace.PositiveZ);
-            cubemap.SetPixels(get_pixels("Skybox/bkg1_back"), CubemapFace.NegativeZ);
-            cubemap.SetPixels(get_pixels("Skybox/bkg1_left"), CubemapFace.PositiveX);
-            cubemap.SetPixels(get_pixels("Skybox/bkg1_right"), CubemapFace.NegativeX);
+            Cubemap cubemap = new Cubemap(width: 4096, TextureFormat.RGBA32, mipChain: false);
+            cubemap.SetPixels(get_pixels("Skybox/Down_Tex"), CubemapFace.PositiveY);
+            cubemap.SetPixels(get_pixels("Skybox/Up_Tex"), CubemapFace.NegativeY);
+            cubemap.SetPixels(get_pixels("Skybox/Front_Tex"), CubemapFace.PositiveZ);
+            cubemap.SetPixels(get_pixels("Skybox/Back_Tex"), CubemapFace.NegativeZ);
+            cubemap.SetPixels(get_pixels("Skybox/Left_Tex"), CubemapFace.PositiveX);
+            cubemap.SetPixels(get_pixels("Skybox/Right_Tex"), CubemapFace.NegativeX);
             cubemap.Apply();
             materials["Skybox/Nebula Blue"].SetTexture("_Tex", cubemap);
         }
@@ -158,7 +158,7 @@ namespace RimNauts2 {
             // Copy the pixels from the RenderTexture to the new Texture
             myTexture2D.ReadPixels(new Rect(0, 0, tmp.width, tmp.height), 0, 0);
             myTexture2D.Apply();
-            Color[] texColors = myTexture2D.GetPixels().Reverse().ToArray();
+            Color[] texColors = myTexture2D.GetPixels();
             // Release the temporary RenderTexture
             RenderTexture.ReleaseTemporary(tmp);
             return texColors;
