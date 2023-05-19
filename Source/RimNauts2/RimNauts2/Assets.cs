@@ -55,6 +55,13 @@ namespace RimNauts2 {
                     }
                 }
             }
+            materials.Add(
+                "Skybox/Nebula Blue",
+                MaterialPool.MatFrom(
+                    "Skybox/Nebula Blue",
+                    ShaderDatabase.WorldOverlayCutout
+                )
+            );
         }
 
         private static void get_assets() {

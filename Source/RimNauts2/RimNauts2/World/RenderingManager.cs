@@ -196,6 +196,8 @@ namespace RimNauts2.World {
             camera.farClipPlane = 500.0f + Defs.Of.general.max_altitude;
             camera.fieldOfView = Defs.Of.general.field_of_view;
             RimWorld.Planet.WorldCameraManager.worldSkyboxCameraInt.farClipPlane = 500.0f + Defs.Of.general.max_altitude;
+            RimWorld.Planet.WorldCameraManager.worldSkyboxCameraInt.backgroundColor = new Color(0, 0, 0, 0);
+            RenderSettings.skybox = Assets.materials["Skybox/Nebula Blue"];
         }
 
         public static void update() {
