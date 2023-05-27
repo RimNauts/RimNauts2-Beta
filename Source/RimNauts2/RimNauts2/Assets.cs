@@ -23,6 +23,42 @@ namespace RimNauts2 {
                     }
                 }
             }
+            foreach (var (type, celestial_objects) in Defs.Loader.celestial_objects) {
+                foreach (var celestial_object in celestial_objects) {
+                    if (celestial_object.texture_builder == null) continue;
+                    foreach (var layer in celestial_object.texture_builder.layers) {
+                        if (layer.texture_paths.NullOrEmpty()) continue;
+                        foreach (var texture_path in layer.texture_paths) {
+                            if (texture_path.NullOrEmpty() || textures.ContainsKey(texture_path)) continue;
+                            textures.Add(texture_path, get_content<Texture2D>(texture_path));
+                        }
+                    }
+                }
+            }
+            materials.Add(
+                "default/world_object",
+                MaterialPool.MatFrom(
+                    "RimNauts2_Transparent",
+                    neo_shader,
+                    RimWorld.Planet.WorldMaterials.WorldObjectRenderQueue
+                )
+            );
+            foreach (var (type, celestial_objects) in Defs.Loader.celestial_objects) {
+                foreach (var celestial_object in celestial_objects) {
+                    if (celestial_object.texture_builder == null) continue;
+                    if (!materials.ContainsKey(celestial_object.defName)) {
+                        materials.Add(
+                            celestial_object.defName,
+                            MaterialPool.MatFrom(
+                                celestial_object.texture(),
+                                neo_shader,
+                                Color.white,
+                                RimWorld.Planet.WorldMaterials.WorldObjectRenderQueue
+                            )
+                        );
+                    }
+                }
+            }
             foreach (var (type, object_holders) in Defs.Loader.object_holders) {
                 foreach (var object_holder in object_holders) {
                     if (object_holder.texture_paths.NullOrEmpty()) continue;
@@ -153,6 +189,25 @@ namespace RimNauts2 {
                 b += texColors[i].b;
             }
             return new Color(r / total, g / total, b / total, 1.0f);
+        }
+
+        public static Texture2D get_readable_texture(Texture2D source) {
+            RenderTexture renderTex = RenderTexture.GetTemporary(
+                source.width,
+                source.height,
+                0,
+                RenderTextureFormat.Default,
+                RenderTextureReadWrite.Linear
+            );
+            Graphics.Blit(source, renderTex);
+            RenderTexture previous = RenderTexture.active;
+            RenderTexture.active = renderTex;
+            Texture2D readableText = new Texture2D(source.width, source.height);
+            readableText.ReadPixels(new Rect(0, 0, renderTex.width, renderTex.height), 0, 0);
+            readableText.Apply();
+            RenderTexture.active = previous;
+            RenderTexture.ReleaseTemporary(renderTex);
+            return readableText;
         }
     }
 }

@@ -72,6 +72,10 @@
       <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule">
+      <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="UnityEngine.TextRenderingModule">
       <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
       <Private>False</Private>
@@ -90,11 +94,14 @@
     <Compile Include="Biome\Patch\PawnGroupMaker.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Assets.cs" />
+    <Compile Include="Defs\CelestialObject.cs" />
     <Compile Include="Defs\Of.cs" />
     <Compile Include="Defs\ObjectGenerationStep.cs" />
     <Compile Include="Defs\Loader.cs" />
     <Compile Include="Defs\ObjectHolder.cs" />
     <Compile Include="Defs\ObjectMetadata.cs" />
+    <Compile Include="Defs\TextureBuilder.cs" />
+    <Compile Include="Defs\Trail.cs" />
     <Compile Include="Settings\Container.cs" />
     <Compile Include="Settings\Page.cs" />
     <Compile Include="Things\Building\DeliveryCannon.cs" />
@@ -111,6 +118,7 @@
     <Compile Include="World\Comps\GenerateObjectMap.cs" />
     <Compile Include="World\Comps\RandomizeObjectHolder.cs" />
     <Compile Include="World\FeatureMesh.cs" />
+    <Compile Include="World\Objects\CelestialObject.cs" />
     <Compile Include="World\Patch\CameraDriver.cs" />
     <Compile Include="World\Patch\VacuumOverlay.cs" />
     <Compile Include="World\RenderingManager.cs" />

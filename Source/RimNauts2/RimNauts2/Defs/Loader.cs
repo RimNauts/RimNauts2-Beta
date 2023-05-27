@@ -5,6 +5,7 @@ namespace RimNauts2.Defs {
     [StaticConstructorOnStartup]
     public static class Loader {
         private static int total_defs;
+        public static Dictionary<World.Type, List<CelestialObject>> celestial_objects = new Dictionary<World.Type, List<CelestialObject>>();
         public static Dictionary<World.Type, List<ObjectHolder>> object_holders = new Dictionary<World.Type, List<ObjectHolder>>();
         public static Dictionary<World.Type, ObjectMetadata> object_metadata = new Dictionary<World.Type, ObjectMetadata>();
         public static Dictionary<World.Type, ObjectGenerationStep> object_generation_steps = new Dictionary<World.Type, ObjectGenerationStep>();
@@ -19,6 +20,12 @@ namespace RimNauts2.Defs {
         public static ThingDef thing_delivery_cannon_active = DefDatabase<ThingDef>.GetNamed("RimNauts2_ActiveDropPod_Shell");
 
         public static void init() {
+            foreach (CelestialObject celestial_object in DefDatabase<CelestialObject>.AllDefs) {
+                World.Type type = (World.Type) celestial_object.type;
+                if (!celestial_objects.ContainsKey(type)) celestial_objects.Add(type, new List<CelestialObject>());
+                celestial_objects[type].Add(celestial_object);
+                total_defs++;
+            }
             foreach (ObjectHolder object_holder in DefDatabase<ObjectHolder>.AllDefs) {
                 World.Type type = (World.Type) object_holder.type;
                 if (!object_holders.ContainsKey(type)) object_holders.Add(type, new List<ObjectHolder>());

@@ -87,7 +87,8 @@ namespace RimNauts2.World {
         }
 
         public static void remove_visual_object(Objects.NEO neo) {
-            RenderingManager.visual_objects.RemoveAll(visual_object => visual_object.index == neo.index);
+            //RenderingManager.visual_objects.RemoveAll(visual_object => visual_object.index == neo.index);
+            RenderingManager.visual_objects.Remove(neo);
             RenderingManager.recache();
         }
 

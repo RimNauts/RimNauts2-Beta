@@ -181,7 +181,7 @@ namespace RimNauts2.World.Objects {
 
         public virtual Material get_material() {
             if (material != null) return material;
-            material = Assets.materials[texture_path];
+            material = Assets.materials["RimNauts2_Celestial_Object_Moon"];
             material.color = new Color(color, color, color);
             return material;
         }

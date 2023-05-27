@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<RimNauts2.Defs.CelestialObject>
+        <defName>RimNauts2_Celestial_Object_Moon</defName>
+        <type>4</type>
+        <orbit_position>(330.0, 0.0, 330.0)</orbit_position>
+        <orbit_spread>(0.25, 0.0, 0.25)</orbit_spread>
+        <speed_between>(1.0, 1.0)</speed_between>
+        <size_between>(1.0, 1.5)</size_between>
+        <brightness_between>(1.0, 1.0)</brightness_between>
+        <object_holder>true</object_holder>
+        <texture_builder>
+            <layers>
+                <li>
+                    <texture_paths>
+                        <li>Satellites/PlanetParts/sphere1</li>
+                    </texture_paths>
+                    <color>(0, 94, 184)</color>
+                </li>
+            </layers>
+        </texture_builder>
+	</RimNauts2.Defs.CelestialObject>
+</Defs>
