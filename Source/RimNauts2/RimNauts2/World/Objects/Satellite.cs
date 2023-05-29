@@ -14,7 +14,8 @@ namespace RimNauts2.World.Objects {
             float? color = null,
             float? rotation_angle = null,
             float? transformation_rotation_angle = null,
-            Vector3? current_position = null
+            Vector3? current_position = null,
+            Vector3? target_position = null
         ) : base(
             Type.Satellite,
             texture_path,
@@ -27,7 +28,8 @@ namespace RimNauts2.World.Objects {
             color,
             rotation_angle,
             transformation_rotation_angle,
-            current_position
+            current_position,
+            target_position
         ) { }
 
         public override void update() {

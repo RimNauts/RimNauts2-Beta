@@ -35,7 +35,17 @@ namespace RimNauts2.World {
         float rotation_angle;
         float transformation_rotation_angle;
         Vector3 current_position;
+        Vector3 target_position;
         public FeatureMesh feature_mesh;
+        private Comps.Targeter targeter = null;
+
+        public Comps.Targeter Targeter {
+            get {
+                if (targeter != null) return targeter;
+                targeter = GetComponent<Comps.Targeter>();
+                return targeter;
+            }
+        }
 
         ~ObjectHolder() {
             feature_mesh?.set_active(false);
@@ -57,6 +67,7 @@ namespace RimNauts2.World {
                 rotation_angle = visual_object.rotation_angle;
                 transformation_rotation_angle = visual_object.transformation_rotation_angle;
                 current_position = visual_object.current_position;
+                target_position = visual_object.target_position;
             }
             Scribe_Values.Look(ref keep_after_abandon, "keep_after_abandon");
             Scribe_Values.Look(ref limited_time, "limited_time");
@@ -81,6 +92,7 @@ namespace RimNauts2.World {
             Scribe_Values.Look(ref rotation_angle, "rotation_angle");
             Scribe_Values.Look(ref transformation_rotation_angle, "transformation_rotation_angle");
             Scribe_Values.Look(ref current_position, "current_position");
+            Scribe_Values.Look(ref target_position, "target_position");
             if (visual_object == null) {
                 add_visual_object(
                     type,
@@ -94,7 +106,8 @@ namespace RimNauts2.World {
                     color,
                     rotation_angle,
                     transformation_rotation_angle,
-                    current_position
+                    current_position,
+                    target_position
                 );
             }
             if (Biome == Defs.Loader.biome_satellite && type == Type.Moon) {
@@ -226,7 +239,8 @@ namespace RimNauts2.World {
             float? color = null,
             float? rotation_angle = null,
             float? transformation_rotation_angle = null,
-            Vector3? current_position = null
+            Vector3? current_position = null,
+            Vector3? target_position = null
         ) {
             visual_object = Generator.add_visual_object(
                 type,
@@ -240,7 +254,8 @@ namespace RimNauts2.World {
                 color,
                 rotation_angle,
                 transformation_rotation_angle,
-                current_position
+                current_position,
+                target_position
             );
             visual_object.object_holder = this;
             this.type = visual_object.type;
@@ -254,6 +269,7 @@ namespace RimNauts2.World {
             this.rotation_angle = visual_object.rotation_angle;
             this.transformation_rotation_angle = visual_object.transformation_rotation_angle;
             this.current_position = visual_object.current_position;
+            this.target_position = visual_object.target_position;
             position = visual_object.current_position;
         }
     }

@@ -18,6 +18,7 @@
 				<label>Randomize</label>
 				<desc>Randomize properties.</desc>
 			</li>
+			<li Class="RimNauts2.World.Comps.ShipTargeter_Properties"/>
 		</comps>
 		<useDynamicDrawer>false</useDynamicDrawer>
 		<expandingIcon>true</expandingIcon>

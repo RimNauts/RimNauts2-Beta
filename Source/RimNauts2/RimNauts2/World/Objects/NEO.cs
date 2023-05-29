@@ -17,6 +17,7 @@ namespace RimNauts2.World.Objects {
         public float rotation_angle;
         public float transformation_rotation_angle;
         public Vector3 current_position;
+        public Vector3 target_position;
         public Material material;
         public Quaternion rotation;
         public ObjectHolder object_holder;
@@ -44,7 +45,8 @@ namespace RimNauts2.World.Objects {
             float? color = null,
             float? rotation_angle = null,
             float? transformation_rotation_angle = null,
-            Vector3? current_position = null
+            Vector3? current_position = null,
+            Vector3? target_position = null
         ) {
             this.type = type;
             this.texture_path = texture_path ?? type.texture_path();
@@ -61,6 +63,7 @@ namespace RimNauts2.World.Objects {
             this.rotation_angle = rotation_angle ?? type.rotation_angle();
             this.transformation_rotation_angle = transformation_rotation_angle ?? type.transformation_rotation_angle();
             this.current_position = current_position ?? this.orbit_position;
+            this.target_position = target_position ?? Vector3.zero;
             Vector3 axis = Vector3.up;
             Quaternion.AngleAxis_Injected(this.rotation_angle, ref axis, out rotation);
             if (current_position == null) update_position(tick: 0);

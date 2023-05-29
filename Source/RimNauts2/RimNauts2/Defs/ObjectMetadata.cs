@@ -21,5 +21,6 @@ namespace RimNauts2.Defs {
         public Color? trail_color = null;
         public float trail_brightness = 1.0f;
         public float trail_transparency = 1.0f;
+        public bool ship = false;
     }
 }

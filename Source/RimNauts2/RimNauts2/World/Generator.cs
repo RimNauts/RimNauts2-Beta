@@ -19,6 +19,7 @@ namespace RimNauts2.World {
                     add_visual_object(amount, type);
                 }
             }
+            add_object_holder(1, Type.Ship);
         }
 
         public static void randomize_all_objects() {
@@ -104,7 +105,8 @@ namespace RimNauts2.World {
             float? color = null,
             float? rotation_angle = null,
             float? transformation_rotation_angle = null,
-            Vector3? current_position = null
+            Vector3? current_position = null,
+            Vector3? target_position = null
         ) {
             for (int i = 0; i < amount; i++) {
                 add_visual_object(
@@ -119,7 +121,8 @@ namespace RimNauts2.World {
                     color,
                     transformation_rotation_angle,
                     rotation_angle,
-                    current_position
+                    current_position,
+                    target_position
                 );
             }
         }
@@ -136,7 +139,8 @@ namespace RimNauts2.World {
             float? color = null,
             float? rotation_angle = null,
             float? transformation_rotation_angle = null,
-            Vector3? current_position = null
+            Vector3? current_position = null,
+            Vector3? target_position = null
         ) {
             Objects.NEO visual_object = type.neo(
                 texture_path,
@@ -149,7 +153,8 @@ namespace RimNauts2.World {
                 color,
                 rotation_angle,
                 transformation_rotation_angle,
-                current_position
+                current_position,
+                target_position
             );
             RenderingManager.visual_objects.Add(visual_object);
             RenderingManager.recache();
@@ -170,6 +175,7 @@ namespace RimNauts2.World {
             float? rotation_angle = null,
             float? transformation_rotation_angle = null,
             Vector3? current_position = null,
+            Vector3? target_position = null,
             string object_holder_def = null,
             bool weighted_choice = false
         ) {
@@ -187,6 +193,7 @@ namespace RimNauts2.World {
                     rotation_angle,
                     transformation_rotation_angle,
                     current_position,
+                    target_position,
                     object_holder_def,
                     weighted_choice: weighted_choice
                 );
@@ -206,6 +213,7 @@ namespace RimNauts2.World {
             float? rotation_angle = null,
             float? transformation_rotation_angle = null,
             Vector3? current_position = null,
+            Vector3? target_position = null,
             string object_holder_def = null,
             int start_index = 1,
             bool weighted_choice = false
@@ -248,7 +256,8 @@ namespace RimNauts2.World {
                 color,
                 rotation_angle,
                 transformation_rotation_angle,
-                current_position
+                current_position,
+                target_position
             );
             if (defs.limited_days_between != null) {
                 Vector2 days_between = (Vector2) defs.limited_days_between;

@@ -11,6 +11,7 @@ namespace RimNauts2.World {
         Moon = 4,
         Satellite = 5,
         SpaceStation = 6,
+        Ship = 7,
     }
 
     public static class TypeExtension {
@@ -26,7 +27,8 @@ namespace RimNauts2.World {
             float? color = null,
             float? rotation_angle = null,
             float? transformation_rotation_angle = null,
-            Vector3? current_position = null
+            Vector3? current_position = null,
+            Vector3? target_position = null
         ) {
             switch (type) {
                 case Type.Asteroid:
@@ -41,7 +43,8 @@ namespace RimNauts2.World {
                         color,
                         rotation_angle,
                         transformation_rotation_angle,
-                        current_position
+                        current_position,
+                        target_position
                     );
                 case Type.AsteroidOre:
                     return new Objects.AsteroidOre(
@@ -55,7 +58,8 @@ namespace RimNauts2.World {
                         color,
                         rotation_angle,
                         transformation_rotation_angle,
-                        current_position
+                        current_position,
+                        target_position
                     );
                 case Type.AsteroidCrashing:
                     return new Objects.AsteroidCrashing(
@@ -69,7 +73,8 @@ namespace RimNauts2.World {
                         color,
                         rotation_angle,
                         transformation_rotation_angle,
-                        current_position
+                        current_position,
+                        target_position
                     );
                 case Type.Moon:
                     return new Objects.Moon(
@@ -83,7 +88,8 @@ namespace RimNauts2.World {
                         color,
                         rotation_angle,
                         transformation_rotation_angle,
-                        current_position
+                        current_position,
+                        target_position
                     );
                 case Type.Satellite:
                     return new Objects.Satellite(
@@ -97,7 +103,8 @@ namespace RimNauts2.World {
                         color,
                         rotation_angle,
                         transformation_rotation_angle,
-                        current_position
+                        current_position,
+                        target_position
                     );
                 case Type.SpaceStation:
                     return new Objects.SpaceStation(
@@ -111,7 +118,23 @@ namespace RimNauts2.World {
                         color,
                         rotation_angle,
                         transformation_rotation_angle,
-                        current_position
+                        current_position,
+                        target_position
+                    );
+                case Type.Ship:
+                    return new Objects.Ship(
+                        texture_path,
+                        orbit_position,
+                        orbit_speed,
+                        draw_size,
+                        period,
+                        time_offset,
+                        orbit_direction,
+                        color,
+                        rotation_angle,
+                        transformation_rotation_angle,
+                        current_position,
+                        target_position
                     );
                 default:
                     return null;

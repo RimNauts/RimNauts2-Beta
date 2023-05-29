@@ -54,6 +54,7 @@ namespace RimNauts2.World {
         private static List<float> expose_rotation_angle;
         private static List<float> expose_transformation_rotation_angle;
         private static List<Vector3> expose_current_position;
+        private static List<Vector3> expose_target_position;
 
         public RenderingManager(Game game) : base() => reset_instance();
 
@@ -95,6 +96,7 @@ namespace RimNauts2.World {
             expose_rotation_angle = new List<float>();
             expose_transformation_rotation_angle = new List<float>();
             expose_current_position = new List<Vector3>();
+            expose_target_position = new List<Vector3>();
         }
 
         public override void FinalizeInit() {
@@ -125,7 +127,8 @@ namespace RimNauts2.World {
                     expose_color[i],
                     expose_rotation_angle[i],
                     transformation_rotation_angle,
-                    expose_current_position[i]
+                    expose_current_position[i],
+                    expose_target_position[i]
                 );
                 visual_objects.Add(neo);
             }
@@ -147,6 +150,7 @@ namespace RimNauts2.World {
             expose_rotation_angle = new List<float>();
             expose_transformation_rotation_angle = new List<float>();
             expose_current_position = new List<Vector3>();
+            expose_target_position = new List<Vector3>();
             for (int i = 0; i < total_objects; i++) {
                 if (visual_objects[i].object_holder != null) continue;
                 expose_type.Add(visual_objects[i].type);
@@ -161,6 +165,7 @@ namespace RimNauts2.World {
                 expose_rotation_angle.Add(visual_objects[i].rotation_angle);
                 expose_transformation_rotation_angle.Add(visual_objects[i].transformation_rotation_angle);
                 expose_current_position.Add(visual_objects[i].current_position);
+                expose_target_position.Add(visual_objects[i].target_position);
             }
             Scribe_Collections.Look(ref expose_type, "expose_type", LookMode.Value);
             Scribe_Collections.Look(ref expose_texture_path, "expose_texture_path", LookMode.Value);
@@ -174,6 +179,7 @@ namespace RimNauts2.World {
             Scribe_Collections.Look(ref expose_rotation_angle, "expose_rotation_angle", LookMode.Value);
             Scribe_Collections.Look(ref expose_transformation_rotation_angle, "expose_transformation_rotation_angle", LookMode.Value);
             Scribe_Collections.Look(ref expose_current_position, "expose_current_position", LookMode.Value);
+            Scribe_Collections.Look(ref expose_target_position, "expose_target_position", LookMode.Value);
             if (visual_objects.NullOrEmpty() && expose_type.Count > 0) LoadedGame();
         }
 
