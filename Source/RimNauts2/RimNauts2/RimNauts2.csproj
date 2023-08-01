@@ -101,10 +101,13 @@
     <Compile Include="Things\Building\PodLauncher.cs" />
     <Compile Include="Things\Comps\BuildRoof.cs" />
     <Compile Include="Things\Comps\DeliveryCannonCharger.cs" />
+    <Compile Include="Things\Comps\DeliveryCannonMode.cs" />
     <Compile Include="Things\Comps\DeliveryCannonTargeter.cs" />
     <Compile Include="Things\Comps\RemoveRoof.cs" />
     <Compile Include="Things\Patch\Roof.cs" />
     <Compile Include="Things\PlaceWorker\BuildRoof.cs" />
+    <Compile Include="Things\PlaceWorker\IsBarrenMoon.cs" />
+    <Compile Include="Things\PlaceWorker\NotBarrenMoon.cs" />
     <Compile Include="Things\PlaceWorker\RemoveRoof.cs" />
     <Compile Include="Things\TransportPodArrivalAction.cs" />
     <Compile Include="World\Comps\DestroyObjectHolder.cs" />
