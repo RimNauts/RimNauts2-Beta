@@ -6,7 +6,11 @@
 		<description>Ship used for research.</description>
         <type>7</type>
 		<texture_paths>
-			<li>RimNauts2_DEBUG</li>
+			<li>Satellites/Ships/RimNauts2_Ship_Construction</li>
+			<li>Satellites/Ships/RimNauts2_Ship_Military</li>
+			<li>Satellites/Ships/RimNauts2_Ship_Science</li>
+			<li>Satellites/Ships/RimNauts2_Ship_Trader</li>
+			<li>Satellites/Ships/RimNauts2_Ship_Transport</li>
 		</texture_paths>
 		<biome_def>RimNauts2_Satellite_Biome</biome_def>
 		<keep_after_abandon>false</keep_after_abandon>

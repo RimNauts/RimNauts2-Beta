@@ -3,6 +3,8 @@ using UnityEngine;
 
 namespace RimNauts2.World.Objects {
     public class Ship : NEO {
+        Vector3? last_position = null;
+
         public Ship(
             string texture_path = null,
             Vector3? orbit_position = null,
@@ -50,22 +52,41 @@ namespace RimNauts2.World.Objects {
 
         public override void update_when_camera_moved() {
             base.update_when_camera_moved();
+            if (last_position == null) return;
+            update_rotation((Vector3) last_position, current_position);
         }
 
         public override void update_position(int tick) {
             if (target_position == Vector3.zero) return;
-            Vector3 last_position = current_position;
-            current_position = Vector3.Slerp(current_position, target_position, 0.01f * orbit_speed);
-            update_rotation(last_position, current_position);
+            last_position = get_position();
+            current_position = Vector3.Slerp(get_position(), target_position, 0.01f * orbit_speed);
+            update_rotation((Vector3) last_position, current_position);
         }
 
         public void update_rotation(Vector3 current_position, Vector3 target_position) {
-            Vector3 direction = target_position - current_position;
+            //Vector3 direction = target_position - current_position;
+            Vector3 direction = Vector3.Cross(target_position - current_position, RenderingManager.center);
             Vector3 direction_normalized = direction.normalized;
             float yaw_angle = (float) (Math.Atan2(direction_normalized.x, direction_normalized.z) * (180 / Math.PI));
             Vector3 axis = Vector3.up;
-            
-            Quaternion.AngleAxis_Injected(yaw_angle, ref axis, out rotation);
+
+            //extra_rotation = Quaternion.LookRotation(direction);
+            extra_rotation = Quaternion.AngleAxis(yaw_angle, axis);
+
+            Vector3 center = RenderingManager.center;
+            center.x = Math.Abs(center.x);
+            center.y = Math.Abs(center.y);
+            center.z = Math.Abs(center.z);
+            if (center.x >= center.y && center.x >= center.z) {
+                extra_rotation.y = 0;
+                extra_rotation.z = 0;
+            } else if (center.y >= center.x && center.y >= center.z) {
+                extra_rotation.x = 0;
+                extra_rotation.z = 0;
+            } else if (center.z >= center.x && center.z >= center.y) {
+                extra_rotation.x = 0;
+                extra_rotation.y = 0;
+            }
         }
     }
 }

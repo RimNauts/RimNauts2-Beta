@@ -19,7 +19,7 @@ namespace RimNauts2.World {
                     add_visual_object(amount, type);
                 }
             }
-            add_object_holder(1, Type.Ship);
+            add_object_holder(10, Type.Ship);
         }
 
         public static void randomize_all_objects() {
@@ -267,6 +267,16 @@ namespace RimNauts2.World {
             Find.WorldObjects.Add(object_holder);
             Cache.add(object_holder);
             Find.WorldPathGrid.RecalculatePerceivedMovementDifficultyAt(object_holder.Tile);
+
+            if (type == Type.Satellite) {
+                for (int i = 0; i < RenderingManager.total_objects; i++) {
+                    if (RenderingManager.visual_objects[i].object_holder != null || RenderingManager.visual_objects[i].type == Type.Ship) {
+                        RenderingManager.visual_objects[i].object_holder.Targeter.target_tile = object_holder.Tile;
+                        RenderingManager.visual_objects[i].object_holder.Targeter.valid = true;
+                    }
+                }
+            }
+
             return object_holder;
         }
 

@@ -8,17 +8,17 @@
         </texture_paths>
 		<orbit_position>(250.0, 5.0, 250.0)</orbit_position>
 		<orbit_spread>(0.3, 0.1, 0.3)</orbit_spread>
-		<orbit_speed_between>(1.0, 1.0)</orbit_speed_between>
-		<size_between>(1.5, 1.5)</size_between>
+		<orbit_speed_between>(0.5, 1.5)</orbit_speed_between>
+		<size_between>(0.5, 0.5)</size_between>
 		<color_between>(1.0, 1.0)</color_between>
 		<random_rotation>false</random_rotation>
 		<object_holder>true</object_holder>
 		<trail>true</trail>
-		<trail_width>0.3</trail_width>
-		<trail_length>2.0</trail_length>
+		<trail_width>0.1</trail_width>
+		<trail_length>0.5</trail_length>
 		<trail_color>(173, 216, 230)</trail_color>
 		<trail_brightness>1.0</trail_brightness>
-		<trail_transparency>0.5</trail_transparency>
+		<trail_transparency>0.4</trail_transparency>
         <ship>true</ship>
   	</RimNauts2.Defs.ObjectMetadata>
 </Defs>

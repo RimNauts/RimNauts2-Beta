@@ -5,6 +5,7 @@
 	}
 
 	SubShader {
+        Cull off
 		Pass {
 			CGPROGRAM
 			#pragma vertex vert
