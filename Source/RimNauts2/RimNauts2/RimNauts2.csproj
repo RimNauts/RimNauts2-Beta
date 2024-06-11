@@ -104,6 +104,7 @@
     <Compile Include="Things\Comps\DeliveryCannonMode.cs" />
     <Compile Include="Things\Comps\DeliveryCannonTargeter.cs" />
     <Compile Include="Things\Comps\RemoveRoof.cs" />
+    <Compile Include="Things\Patch\Ext_Vehicles.cs" />
     <Compile Include="Things\Patch\Roof.cs" />
     <Compile Include="Things\PlaceWorker\BuildRoof.cs" />
     <Compile Include="Things\PlaceWorker\IsBarrenMoon.cs" />
