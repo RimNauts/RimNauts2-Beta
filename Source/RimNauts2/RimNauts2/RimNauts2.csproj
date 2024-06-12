@@ -109,6 +109,7 @@
     <Compile Include="Things\PlaceWorker\IsBarrenMoon.cs" />
     <Compile Include="Things\PlaceWorker\NotBarrenMoon.cs" />
     <Compile Include="Things\PlaceWorker\RemoveRoof.cs" />
+    <Compile Include="Things\PlaceWorker\StellarEjector.cs" />
     <Compile Include="Things\SatelliteInformationCommand.cs" />
     <Compile Include="Things\TransportPodArrivalAction.cs" />
     <Compile Include="Deprecated\RenderingManager.cs" />
