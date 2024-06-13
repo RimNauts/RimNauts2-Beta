@@ -6,5 +6,10 @@
         <isThickRoof>false</isThickRoof>
         <filthLeaving>Filth_RubbleBuilding</filthLeaving>
         <soundPunchThrough>PunchThroughRoofMetal</soundPunchThrough>
+		<modExtensions>
+			<li Class="Vehicles.RoofDefPositionStateDefModExtension" MayRequire="smashphil.vehicleframework">
+				<state>Valid</state>
+			</li>
+		</modExtensions>
     </RoofDef>
 </Defs>
