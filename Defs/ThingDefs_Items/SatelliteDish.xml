@@ -110,7 +110,7 @@
         <shortCircuitInRain>false</shortCircuitInRain>
         <basePowerConsumption>50</basePowerConsumption>
       </li>
-      <li Class="CompProperties_Flickable"/>
+      <li Class="RimNauts2.Things.Comps.Eject_Properties"/>
     </comps>
     <designationCategory>Misc</designationCategory>
     <constructionSkillPrerequisite>5</constructionSkillPrerequisite>

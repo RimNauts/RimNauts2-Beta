@@ -103,6 +103,7 @@
     <Compile Include="Things\Comps\DeliveryCannonCharger.cs" />
     <Compile Include="Things\Comps\DeliveryCannonMode.cs" />
     <Compile Include="Things\Comps\DeliveryCannonTargeter.cs" />
+    <Compile Include="Things\Comps\Eject.cs" />
     <Compile Include="Things\Comps\RemoveRoof.cs" />
     <Compile Include="Things\Patch\Roof.cs" />
     <Compile Include="Things\PlaceWorker\BuildRoof.cs" />

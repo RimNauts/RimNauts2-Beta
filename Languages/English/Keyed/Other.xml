@@ -47,4 +47,9 @@
     <RimNauts.transportpod_success_message_launch>Successfully launched module into orbit.</RimNauts.transportpod_success_message_launch>
     <RimNauts.transportpod_label>Launch {0}</RimNauts.transportpod_label>
     <RimNauts.transportpod_desc>Launch {0} into orbit.</RimNauts.transportpod_desc>
+    <RimNauts.ejector_open_label>Activate Ejector</RimNauts.ejector_open_label>
+    <RimNauts.ejector_open_desc>Initiate decompression and eject all contents into outer space. Use with extreme caution.</RimNauts.ejector_open_desc>
+    <RimNauts.ejector_close_label>Seal Ejector</RimNauts.ejector_close_label>
+    <RimNauts.ejector_close_desc>Securely seal the chamber and repressurize to safe levels. Ensure area is clear before activation.</RimNauts.ejector_close_desc>
+    <RimNauts.ejector_missing_power>Requires power to operate</RimNauts.ejector_missing_power>
 </LanguageData>
