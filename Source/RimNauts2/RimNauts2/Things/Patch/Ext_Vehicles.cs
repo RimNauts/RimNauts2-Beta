@@ -6,9 +6,25 @@ using Verse;
 namespace RimNauts2.Things.Patch {
     public class Ext_Vehicles {
         public static void Init(Harmony harmony) {
+            _ = new PatchClassProcessor(harmony, typeof(ShipInteriorMod2_CanLaunchUnderRoof)).Patch();
             _ = new PatchClassProcessor(harmony, typeof(Ext_Vehicles_IsRoofed)).Patch();
             _ = new PatchClassProcessor(harmony, typeof(Ext_Vehicles_IsRoofRestricted)).Patch();
             _ = new PatchClassProcessor(harmony, typeof(Ext_Vehicles_IsRoofRestricted_2)).Patch();
+        }
+    }
+
+    [HarmonyPatch]
+    static class ShipInteriorMod2_CanLaunchUnderRoof {
+        public static bool Prepare() => TargetMethod() != null;
+
+        public static MethodBase TargetMethod() => AccessTools.Method("ShipInteriorMod2:CanLaunchUnderRoof");
+
+        public static void Postfix(Map map, IntVec3 cell, object vehiclePawn, ref bool __result) {
+            if (__result) return;
+
+            if (map.roofGrid.RoofAt(cell) != Defs.Loader.roof_magnetic_field) return;
+
+            __result = true;
         }
     }
 
