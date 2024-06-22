@@ -53,4 +53,21 @@ namespace RimNauts2.Things.Patch {
             return false;
         }
     }
+
+    [HarmonyPatch(typeof(Room), "OpenRoofCountStopAt")]
+    public static class Room_OpenRoofCountStopAt {
+        public static Dictionary<Room, int> cache = new Dictionary<Room, int>();
+
+        public static void Postfix(int threshold, ref int __result, Room __instance) {
+            foreach (Building.Ejector ejector in Building.Ejector.ejectors) {
+                if (ejector == null || !ejector.Eject.open) continue;
+
+                if (!ejector.countAsOutside(__instance)) continue;
+
+                __result++;
+            }
+
+            cache[__instance] = __result;
+        }
+    }
 }

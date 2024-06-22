@@ -16,6 +16,7 @@ namespace RimNauts2.Defs {
         public static ThingDef thing_delivery_cannon_incoming = DefDatabase<ThingDef>.GetNamed("RimNauts2_DropPodIncoming_Shell");
         public static ThingDef thing_delivery_cannon_active = DefDatabase<ThingDef>.GetNamed("RimNauts2_ActiveDropPod_Shell");
         public static RimWorld.BiomeDef biome_barren_moon = DefDatabase<RimWorld.BiomeDef>.GetNamed("RimNauts2_MoonBarren_Biome");
+        public static ThingDef thingStellarEjector = DefDatabase<ThingDef>.GetNamed("RimNauts2_Stellar_Ejector");
 
         public static void init() {
             foreach (ObjectGenerationStep object_generation_step in DefDatabase<ObjectGenerationStep>.AllDefs) {

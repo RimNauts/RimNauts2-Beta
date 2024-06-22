@@ -17,15 +17,13 @@ namespace RimNauts2.Things.PlaceWorker {
             Room room_south = loc_south.GetRoom(map);
             bool vacuum_south = room_south == null || room_south.OpenRoofCount > 0 || room_south.TouchesMapEdge;
 
-            if (!vacuum_south) return;
+            if (!vacuum_south) GenDraw.DrawFieldEdges(room_south.Cells.ToList());
 
             IntVec3 loc_north = center + IntVec3.North.RotatedBy(rot);
             Room room_north = loc_north.GetRoom(map);
             bool vacuum_north = room_north == null || room_north.OpenRoofCount > 0 || room_north.TouchesMapEdge;
 
-            if (vacuum_north) return;
-
-            GenDraw.DrawFieldEdges(room_north.Cells.ToList());
+            if (!vacuum_north) GenDraw.DrawFieldEdges(room_north.Cells.ToList());
         }
     }
 }

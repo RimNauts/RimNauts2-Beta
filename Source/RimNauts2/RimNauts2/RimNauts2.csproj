@@ -97,6 +97,7 @@
     <Compile Include="Settings\Container.cs" />
     <Compile Include="Settings\Page.cs" />
     <Compile Include="Things\Building\DeliveryCannon.cs" />
+    <Compile Include="Things\Building\Ejector.cs" />
     <Compile Include="Things\Building\PodLauncher.cs" />
     <Compile Include="Things\Building\SatelliteOperationsCenter.cs" />
     <Compile Include="Things\Comps\BuildRoof.cs" />

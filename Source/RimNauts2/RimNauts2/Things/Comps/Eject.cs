@@ -10,13 +10,14 @@ namespace RimNauts2.Things.Comps {
 
     public class Eject : ThingComp {
         public Eject_Properties Props => (Eject_Properties) props;
+        public Building.Ejector Parent => (Building.Ejector) parent;
         public bool open = false;
         public RimWorld.CompPowerTrader compPowerTrader;
 
         public RimWorld.CompPowerTrader getCompPowerTrader {
             get {
                 if (compPowerTrader != null) return compPowerTrader;
-                compPowerTrader = parent.GetComp<RimWorld.CompPowerTrader>();
+                compPowerTrader = Parent.GetComp<RimWorld.CompPowerTrader>();
                 return compPowerTrader;
             }
         }
@@ -56,6 +57,12 @@ namespace RimNauts2.Things.Comps {
 
         public void toggle() {
             open = !open;
+
+            Parent.updateRoomData();
+            Parent.rooms[0]?.Notify_RoofChanged();
+            Parent.rooms[1]?.Notify_RoofChanged();
+
+            if (open) Parent.equalizingValue = 0f;
         }
     }
 }

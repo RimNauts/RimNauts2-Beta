@@ -63,56 +63,57 @@
 	</ThingDef>
 
 	<ThingDef ParentName="BuildingBase">
-    <defName>RimNauts2_Stellar_Ejector</defName>
-    <label>Stellar Ejector</label>
-    <description>A high-tech security module designed for space habitats, the Stellar Ejector rapidly decompresses and expels contents from an enclosed environment directly into outer space. This device is primarily used for emergency containment breaches or as a last-resort defensive measure.</description>
-    <graphicData>
-      <texPath>Things/Building/Misc/TempControl/Cooler</texPath>
-      <graphicClass>Graphic_Multi</graphicClass>
-      <damageData>
-        <cornerTL>Damage/Corner</cornerTL>
-        <cornerTR>Damage/Corner</cornerTR>
-        <cornerBL>Damage/Corner</cornerBL>
-        <cornerBR>Damage/Corner</cornerBR>
-      </damageData>
-    </graphicData>
-    <altitudeLayer>Building</altitudeLayer>
-    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
-    <passability>Impassable</passability>
-    <blockWind>true</blockWind>
-    <fillPercent>1</fillPercent>
-    <coversFloor>true</coversFloor>
-    <blockLight>true</blockLight>
-    <canOverlapZones>false</canOverlapZones>
-    <castEdgeShadows>true</castEdgeShadows>
-    <blockWeather>true</blockWeather>
-    <staticSunShadowHeight>1.0</staticSunShadowHeight>
-    <statBases>
-      <WorkToBuild>1600</WorkToBuild>
-      <MaxHitPoints>100</MaxHitPoints>
-      <Flammability>0.7</Flammability>
-    </statBases>
-    <tickerType>Rare</tickerType>
-    <costList>
-      <Steel>90</Steel>
-      <ComponentIndustrial>3</ComponentIndustrial>
-    </costList>
-	<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
-    <placeWorkers>
-        <li>RimNauts2.Things.PlaceWorker.PlaceWorker_StellarEjector</li>
-    </placeWorkers>
-    <building>
-      <canPlaceOverWall>true</canPlaceOverWall>
-    </building>
-    <comps>
-      <li Class="CompProperties_Power">
-        <compClass>CompPowerTrader</compClass>
-        <shortCircuitInRain>false</shortCircuitInRain>
-        <basePowerConsumption>50</basePowerConsumption>
-      </li>
-      <li Class="RimNauts2.Things.Comps.Eject_Properties"/>
-    </comps>
-    <designationCategory>Misc</designationCategory>
-    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
-  </ThingDef>
+        <defName>RimNauts2_Stellar_Ejector</defName>
+        <label>Stellar Ejector</label>
+        <description>A high-tech security module designed for space habitats, the Stellar Ejector rapidly decompresses and expels contents from an enclosed environment directly into outer space. This device is primarily used for emergency containment breaches or as a last-resort defensive measure.</description>
+        <thingClass>RimNauts2.Things.Building.Ejector</thingClass>
+        <tickerType>Rare</tickerType>
+        <graphicData>
+            <texPath>Things/Building/Misc/TempControl/Cooler</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <damageData>
+            <cornerTL>Damage/Corner</cornerTL>
+            <cornerTR>Damage/Corner</cornerTR>
+            <cornerBL>Damage/Corner</cornerBL>
+            <cornerBR>Damage/Corner</cornerBR>
+            </damageData>
+        </graphicData>
+        <altitudeLayer>Building</altitudeLayer>
+        <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+        <passability>Impassable</passability>
+        <blockWind>true</blockWind>
+        <fillPercent>1</fillPercent>
+        <coversFloor>true</coversFloor>
+        <blockLight>true</blockLight>
+        <canOverlapZones>false</canOverlapZones>
+        <castEdgeShadows>true</castEdgeShadows>
+        <blockWeather>true</blockWeather>
+        <staticSunShadowHeight>1.0</staticSunShadowHeight>
+        <statBases>
+            <WorkToBuild>1600</WorkToBuild>
+            <MaxHitPoints>100</MaxHitPoints>
+            <Flammability>0.7</Flammability>
+        </statBases>
+        <costList>
+            <Steel>90</Steel>
+            <ComponentIndustrial>3</ComponentIndustrial>
+        </costList>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <placeWorkers>
+            <li>RimNauts2.Things.PlaceWorker.PlaceWorker_StellarEjector</li>
+        </placeWorkers>
+        <building>
+            <canPlaceOverWall>true</canPlaceOverWall>
+        </building>
+        <comps>
+            <li Class="CompProperties_Power">
+            <compClass>CompPowerTrader</compClass>
+            <shortCircuitInRain>false</shortCircuitInRain>
+            <basePowerConsumption>50</basePowerConsumption>
+            </li>
+            <li Class="RimNauts2.Things.Comps.Eject_Properties"/>
+        </comps>
+        <designationCategory>Misc</designationCategory>
+        <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+    </ThingDef>
 </Defs>
