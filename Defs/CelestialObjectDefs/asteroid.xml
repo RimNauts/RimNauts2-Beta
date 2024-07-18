@@ -12,7 +12,7 @@
         <orbitEccentricityBetween>(0.0, 0.0)</orbitEccentricityBetween>
         <orbitSpreadBetween>(0.0, 0.080)</orbitSpreadBetween>
         <yOffsetBetween>(-2.0, 2.0)</yOffsetBetween>
-        <orbitDirection>RIGHT</orbitDirection>
+        <orbitDirection>Right</orbitDirection>
         <spinRotationSpeedBetween>(0.2, 1.2)</spinRotationSpeedBetween>
         <shape>
             <meshes>

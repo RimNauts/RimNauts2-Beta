@@ -34,40 +34,40 @@ namespace RimNauts2.World {
         public override void Tick() {
             if (destroyed) return;
 
-            Universum.World.Generator.UpdateTile(Tile, RimWorld.BiomeDefOf.Ocean);
+            Universum.World.Initialization.UpdateTile(Tile, RimWorld.BiomeDefOf.Ocean);
 
             if (HasMap || type == Type.Satellite) {
                 Universum.Defs.CelestialObject celestialObjectDef = null;
 
                 switch (type) {
                     case Type.Moon:
-                        celestialObjectDef = Universum.Defs.Loader.celestialObjects["RimNauts2_CelestialObject_Moon_Barren"];
-                        if (map_generator.defName == "RimNauts2_MoonWater_MapGen") celestialObjectDef = Universum.Defs.Loader.celestialObjects["RimNauts2_CelestialObject_Moon_Ocean"];
+                        celestialObjectDef = Universum.Loader.Defs.CelestialObjects["RimNauts2_CelestialObject_Moon_Barren"];
+                        if (map_generator.defName == "RimNauts2_MoonWater_MapGen") celestialObjectDef = Universum.Loader.Defs.CelestialObjects["RimNauts2_CelestialObject_Moon_Ocean"];
                         break;
                     case Type.AsteroidOre:
-                        celestialObjectDef = Universum.Defs.Loader.celestialObjects["RimNauts2_CelestialObject_AsteroidOre_Steel"];
-                        if (map_generator.defName == "RimNauts2_OreGold_MapGen") celestialObjectDef = Universum.Defs.Loader.celestialObjects["RimNauts2_CelestialObject_AsteroidOre_Gold"];
-                        if (map_generator.defName == "RimNauts2_OrePlasteel_MapGen") celestialObjectDef = Universum.Defs.Loader.celestialObjects["RimNauts2_CelestialObject_AsteroidOre_Plasteel"];
-                        if (map_generator.defName == "RimNauts2_OreUranium_MapGen") celestialObjectDef = Universum.Defs.Loader.celestialObjects["RimNauts2_CelestialObject_AsteroidOre_Uranium"];
+                        celestialObjectDef = Universum.Loader.Defs.CelestialObjects["RimNauts2_CelestialObject_AsteroidOre_Steel"];
+                        if (map_generator.defName == "RimNauts2_OreGold_MapGen") celestialObjectDef = Universum.Loader.Defs.CelestialObjects["RimNauts2_CelestialObject_AsteroidOre_Gold"];
+                        if (map_generator.defName == "RimNauts2_OrePlasteel_MapGen") celestialObjectDef = Universum.Loader.Defs.CelestialObjects["RimNauts2_CelestialObject_AsteroidOre_Plasteel"];
+                        if (map_generator.defName == "RimNauts2_OreUranium_MapGen") celestialObjectDef = Universum.Loader.Defs.CelestialObjects["RimNauts2_CelestialObject_AsteroidOre_Uranium"];
                         break;
                     case Type.Satellite:
-                        celestialObjectDef = Universum.Defs.Loader.celestialObjects["RimNauts2_CelestialObject_Satellite_Relay"];
+                        celestialObjectDef = Universum.Loader.Defs.CelestialObjects["RimNauts2_CelestialObject_Satellite_Relay"];
                         break;
                     case Type.SpaceStation:
-                        celestialObjectDef = Universum.Defs.Loader.celestialObjects["RimNauts2_CelestialObject_Satellite_Station"];
+                        celestialObjectDef = Universum.Loader.Defs.CelestialObjects["RimNauts2_CelestialObject_Satellite_Station"];
                         break;
                     default:
-                        celestialObjectDef = Universum.Defs.Loader.celestialObjects["RimNauts2_CelestialObject_AsteroidOre_Steel"];
+                        celestialObjectDef = Universum.Loader.Defs.CelestialObjects["RimNauts2_CelestialObject_AsteroidOre_Steel"];
                         break;
                 }
 
                 if (celestialObjectDef.objectHolder != null) {
-                    Universum.World.ObjectHolder objectHolder = Universum.World.Generator.CreateObjectHolder(celestialObjectDef.defName, tile: Tile);
+                    Universum.World.ObjectHolder objectHolder = Universum.World.Initialization.CreateObjectHolder(celestialObjectDef.defName, tile: Tile);
 
                     Map.info.parent = objectHolder;
                     objectHolder.SetFaction(RimWorld.Faction.OfPlayer);
                     Find.World.WorldUpdate();
-                } else Universum.World.Generator.Create(celestialObjectDef.defName);
+                } else Universum.World.Initialization.Create(celestialObjectDef.defName);
             }
             Destroy();
         }

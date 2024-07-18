@@ -22,11 +22,11 @@
 			<li>RimNauts2_Vacuum_Affordance</li>
 		</affordances>
 		<modExtensions>
-			<li Class="Universum.Utilities.Terrain.Properties">
-				<allowed_utilities>
+			<li Class="Universum.Defs.ModExtension.TerrainProperties">
+				<utilities>
 					<li>universum.vacuum</li>
 					<li>universum.vacuum_overlay</li>
-				</allowed_utilities>
+				</utilities>
 			</li>
 		</modExtensions>
   	</TerrainDef>
@@ -51,10 +51,10 @@
         </researchPrerequisites>
 		<terrainAffordanceNeeded>RimNauts2_Vacuum_Affordance</terrainAffordanceNeeded>
 		<modExtensions>
-			<li Class="Universum.Utilities.Terrain.Properties">
-				<allowed_utilities>
+			<li Class="Universum.Defs.ModExtension.TerrainProperties">
+				<utilities>
 					<li>universum.vacuum_overlay</li>
-				</allowed_utilities>
+				</utilities>
 			</li>
 		</modExtensions>
   	</TerrainDef>

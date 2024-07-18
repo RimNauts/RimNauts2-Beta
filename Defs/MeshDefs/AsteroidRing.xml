@@ -3,7 +3,7 @@
     <Universum.Defs.Mesh Name="RimNauts2_Mesh_AsteroidRing">
         <defName>RimNauts2_Mesh_AsteroidRing_1</defName>
         <materialDefName>RimNauts2_Material_AsteroidRing_1</materialDefName>
-        <type>PLANE</type>
+        <type>Plane</type>
         <dimensions>(1.0, 1.0, 1.0)</dimensions>
         <subdivisionIterations>1</subdivisionIterations>
     </Universum.Defs.Mesh>

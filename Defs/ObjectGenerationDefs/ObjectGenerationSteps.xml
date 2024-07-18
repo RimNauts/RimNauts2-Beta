@@ -3,7 +3,7 @@
     <Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_AsteroidOre</defName>
         <total>32</total>
-        <initializationType>RANDOM</initializationType>
+        <initializationType>Random</initializationType>
         <spawnBetweenDays>(0.5, 1.5)</spawnBetweenDays>
         <despawnBetweenDays>(0.5, 1.5)</despawnBetweenDays>
         <spawnAmountBetween>(1, 4)</spawnAmountBetween>
@@ -29,7 +29,7 @@
     <Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_Moons_Ocean</defName>
         <total>1</total>
-        <initializationType>START_UP</initializationType>
+        <initializationType>StartUp</initializationType>
         <objectGroup>
             <li>
                 <celestialDefName>RimNauts2_CelestialObject_Moon_Ocean</celestialDefName>
@@ -40,7 +40,7 @@
     <Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_Moons_Barren</defName>
         <total>1</total>
-        <initializationType>START_UP</initializationType>
+        <initializationType>StartUp</initializationType>
         <objectGroup>
             <li>
                 <celestialDefName>RimNauts2_CelestialObject_Moon_Barren</celestialDefName>
@@ -51,7 +51,7 @@
     <Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_CrashingAsteroids</defName>
         <total>20</total>
-        <initializationType>START_UP</initializationType>
+        <initializationType>StartUp</initializationType>
         <objectGroup>
             <li>
                 <celestialDefName>RimNauts2_CelestialObject_CrashingAsteroid_Small</celestialDefName>
@@ -66,7 +66,7 @@
     <Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_Asteroid_Disc</defName>
         <total>1</total>
-        <initializationType>START_UP</initializationType>
+        <initializationType>StartUp</initializationType>
         <objectGroup>
             <li>
                 <celestialDefName>RimNauts2_CelestialObject_Asteroid_Disc</celestialDefName>
@@ -77,7 +77,7 @@
     <Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_AsteroidRing_1</defName>
         <total>471</total>
-        <initializationType>START_UP</initializationType>
+        <initializationType>StartUp</initializationType>
         <objectGroup>
             <li>
                 <celestialDefName>RimNauts2_CelestialObject_Asteroid_Small_1</celestialDefName>
@@ -96,7 +96,7 @@
     <Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_AsteroidRing_2</defName>
         <total>118</total>
-        <initializationType>START_UP</initializationType>
+        <initializationType>StartUp</initializationType>
         <objectGroup>
             <li>
                 <celestialDefName>RimNauts2_CelestialObject_Asteroid_Small_2</celestialDefName>
@@ -115,7 +115,7 @@
     <!--<Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_AsteroidRing_3</defName>
         <total>55</total>
-        <initializationType>START_UP</initializationType>
+        <initializationType>StartUp</initializationType>
         <objectGroup>
             <li>
                 <celestialDefName>RimNauts2_CelestialObject_Asteroid_Small_3</celestialDefName>
@@ -134,7 +134,7 @@
     <Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_AsteroidRing_4</defName>
         <total>27</total>
-        <initializationType>START_UP</initializationType>
+        <initializationType>StartUp</initializationType>
         <objectGroup>
             <li>
                 <celestialDefName>RimNauts2_CelestialObject_Asteroid_Small_4</celestialDefName>
@@ -153,7 +153,7 @@
     <Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_AsteroidRing_5</defName>
         <total>22</total>
-        <initializationType>START_UP</initializationType>
+        <initializationType>StartUp</initializationType>
         <objectGroup>
             <li>
                 <celestialDefName>RimNauts2_CelestialObject_Asteroid_Small_5</celestialDefName>
@@ -172,7 +172,7 @@
     <Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_AsteroidRing_6</defName>
         <total>706</total>
-        <initializationType>START_UP</initializationType>
+        <initializationType>StartUp</initializationType>
         <objectGroup>
             <li>
                 <celestialDefName>RimNauts2_CelestialObject_Asteroid_Small_6</celestialDefName>
@@ -191,7 +191,7 @@
     <Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_AsteroidRing_7</defName>
         <total>176</total>
-        <initializationType>START_UP</initializationType>
+        <initializationType>StartUp</initializationType>
         <objectGroup>
             <li>
                 <celestialDefName>RimNauts2_CelestialObject_Asteroid_Small_7</celestialDefName>
@@ -210,7 +210,7 @@
     <!--<Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_AsteroidRing_8</defName>
         <total>27</total>
-        <initializationType>START_UP</initializationType>
+        <initializationType>StartUp</initializationType>
         <objectGroup>
             <li>
                 <celestialDefName>RimNauts2_CelestialObject_Asteroid_Small_8</celestialDefName>
@@ -229,7 +229,7 @@
     <Universum.Defs.ObjectGeneration>
         <defName>RimNauts2_ObjectGeneration_AsteroidRing_9</defName>
         <total>529</total>
-        <initializationType>START_UP</initializationType>
+        <initializationType>StartUp</initializationType>
         <objectGroup>
             <li>
                 <celestialDefName>RimNauts2_CelestialObject_Asteroid_Small_9</celestialDefName>

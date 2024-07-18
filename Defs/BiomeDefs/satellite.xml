@@ -53,8 +53,8 @@
 		<label>Ocean</label>
 		<description>Open ocean. Great for fish. Not so great for you.</description>
 		<modExtensions>
-			<li Class="Universum.Utilities.Biome.Properties">
-				<allowed_utilities>
+			<li Class="Universum.Defs.ModExtension.BiomeProperties">
+				<utilities>
 					<li>universum.vacuum_decompression</li>
             		<li>universum.vacuum_suffocation</li>
             		<li>universum.temperature</li>
@@ -62,7 +62,7 @@
 					<li>universum.vacuum</li>
 					<li>universum.disable_weather_change</li>
 					<li>universum.remove_shadows</li>
-				</allowed_utilities>
+				</utilities>
 				<temperature>-100.0</temperature>
 			</li>
 		</modExtensions>
@@ -85,15 +85,15 @@
 			<SnowHard>0</SnowHard>
 		</baseWeatherCommonalities>
 		<modExtensions>
-			<li Class="Universum.Utilities.Biome.Properties">
-				<allowed_utilities>
+			<li Class="Universum.Defs.ModExtension.BiomeProperties">
+				<utilities>
 					<li>universum.vacuum_decompression</li>
             		<li>universum.vacuum_suffocation</li>
             		<li>universum.temperature</li>
 					<li>universum.ocean_masking</li>
 					<li>universum.vacuum</li>
 					<li>universum.disable_weather_change</li>
-				</allowed_utilities>
+				</utilities>
 				<temperature>-100.0</temperature>
 			</li>
 		</modExtensions>
@@ -115,10 +115,10 @@
 			<SnowHard>0</SnowHard>
 		</baseWeatherCommonalities>
 		<modExtensions>
-			<li Class="Universum.Utilities.Biome.Properties">
-				<allowed_utilities>
+			<li Class="Universum.Defs.ModExtension.BiomeProperties">
+				<utilities>
 					<li>universum.ocean_masking</li>
-				</allowed_utilities>
+				</utilities>
 			</li>
 		</modExtensions>
   	</BiomeDef>

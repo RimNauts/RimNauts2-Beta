@@ -23,7 +23,7 @@ namespace RimNauts2.Things {
         public bool ConnectedToFuelingPort => FuelingPortSource != null;
         public float FuelingPortSourceFuel => !ConnectedToFuelingPort ? 0.0f : FuelingPortSource.GetComp<RimWorld.CompRefuelable>().Fuel;
         public TransportPod_Properties Props => (TransportPod_Properties) props;
-        public float FuelThreshold => Universum.Utilities.Cache.allowed_utility(parent.Map, "universum.vacuum") ? Props.fuelThreshold * 0.2f : Props.fuelThreshold;
+        public float FuelThreshold => Universum.Cache.Utilities.Manager.VACUUM.active && Universum.Cache.Utilities.Manager.VACUUM.maps[parent.Map.Index] ? Props.fuelThreshold * 0.2f : Props.fuelThreshold;
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra() {
             string label = "RimNauts.transportpod_label".Translate(Props.name);
@@ -63,7 +63,7 @@ namespace RimNauts2.Things {
 
             Universum.World.CelestialObject targetToOrbit = null;
 
-            Universum.World.ObjectHolder objectHolder = Universum.World.ObjectHolderCache.Get(target.Tile);
+            Universum.World.ObjectHolder objectHolder = Universum.Cache.ObjectHolder.Get(target.Tile);
             if (objectHolder != null) targetToOrbit = objectHolder.celestialObject;
 
             launch(targetToOrbit);
@@ -74,7 +74,7 @@ namespace RimNauts2.Things {
         public bool CanSelectCelestialObject(RimWorld.Planet.GlobalTargetInfo target) {
             if (!target.IsValid || target.Tile == -1) return false;
 
-            Universum.World.ObjectHolder objectHolder = Universum.World.ObjectHolderCache.Get(target.Tile);
+            Universum.World.ObjectHolder objectHolder = Universum.Cache.ObjectHolder.Get(target.Tile);
             bool dynamicLifeCycle = objectHolder != null && (objectHolder.keepAfterAbandon == false || objectHolder.celestialObject.deathTick != null);
             if (dynamicLifeCycle) return false;
 
@@ -104,10 +104,10 @@ namespace RimNauts2.Things {
             GenSpawn.Spawn(flyShipLeaving, parent.Position, map);
             CameraJumper.TryHideWorld();
 
-            Universum.Defs.CelestialObject celestialObjectDef = Universum.Defs.Loader.celestialObjects[Props.celestialObjectDefName];
+            Universum.Defs.CelestialObject celestialObjectDef = Universum.Loader.Defs.CelestialObjects[Props.celestialObjectDefName];
 
             if (celestialObjectDef.objectHolder != null) {
-                int tile_id = Universum.World.Generator.GetFreeTile();
+                int tile_id = Universum.World.Initialization.GetFreeTile();
                 if (tile_id == -1) {
                     Messages.Message("RimNauts.transportpod_fail_message_launch".Translate(), RimWorld.MessageTypeDefOf.NegativeEvent, true);
                     Logger.print(
@@ -117,13 +117,13 @@ namespace RimNauts2.Things {
                     );
                     return;
                 }
-                Universum.World.ObjectHolder objectHolder = Universum.World.Generator.CreateObjectHolder(Props.celestialObjectDefName, tile: tile_id);
+                Universum.World.ObjectHolder objectHolder = Universum.World.Initialization.CreateObjectHolder(Props.celestialObjectDefName, tile: tile_id);
                 if (objectHolder == null) return;
                 if (Props.createMap) objectHolder.CreateMap(RimWorld.Faction.OfPlayer, clearFog: true);
 
                 objectHolder.celestialObject.SetTarget(targetToOrbit);
             } else {
-                Universum.World.CelestialObject celestialObject = Universum.World.Generator.Create(Props.celestialObjectDefName);
+                Universum.World.CelestialObject celestialObject = Universum.World.Initialization.Create(Props.celestialObjectDefName);
                 celestialObject.SetTarget(targetToOrbit);
             }
 

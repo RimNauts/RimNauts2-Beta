@@ -36,7 +36,7 @@
         <eventMakers>
             <li MayRequire="sindre0830.universum">
                 <averageInterval>120</averageInterval>
-                <eventClass>Universum.Utilities.WeatherEvent_Vacuum</eventClass>
+                <eventClass>Universum.Colony.VacuumWeather</eventClass>
             </li>
         </eventMakers>
     </WeatherDef>
@@ -76,7 +76,7 @@
         <eventMakers>
             <li MayRequire="sindre0830.universum">
                 <averageInterval>120</averageInterval>
-                <eventClass>Universum.Utilities.WeatherEvent_Vacuum</eventClass>
+                <eventClass>Universum.Colony.VacuumWeather</eventClass>
             </li>
         </eventMakers>
     </WeatherDef>

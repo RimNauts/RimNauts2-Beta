@@ -9,12 +9,15 @@ namespace RimNauts2.Biome.Patch {
             if (parms.tile == -1) return __result;
 
             RimWorld.BiomeDef biome = Find.WorldGrid[parms.tile].biome;
-            bool no_oxygen = Universum.Utilities.Cache.allowed_utility(biome, "universum.vacuum_suffocation");
-            bool decompression = Universum.Utilities.Cache.allowed_utility(biome, "universum.vacuum_decompression");
+            bool decompression =
+                Universum.Cache.Settings.UtilityEnabled(Universum.Cache.Utilities.VacuumDamage.decompressionId) &&
+                Universum.Loader.Defs.BiomeProperties[biome.index].activeUtilities[Universum.Cache.Utilities.VacuumDamage.decompressionId];
+            bool no_oxygen =
+                Universum.Cache.Settings.UtilityEnabled(Universum.Cache.Utilities.VacuumDamage.suffocationId) &&
+                Universum.Loader.Defs.BiomeProperties[biome.index].activeUtilities[Universum.Cache.Utilities.VacuumDamage.suffocationId];
             bool requires_spacesuit = no_oxygen || decompression;
-            if (requires_spacesuit) {
-                return apply_spacesuits(__result);
-            } else return __result;
+            
+            return requires_spacesuit ? apply_spacesuits(__result) : __result;
         }
 
         public static IEnumerable<Pawn> apply_spacesuits(IEnumerable<Pawn> pawns) {
@@ -23,12 +26,15 @@ namespace RimNauts2.Biome.Patch {
             ThingDef spacesuit_armor = ThingDef.Named("RimNauts2_Apparel_SpaceSuit_Body");
             foreach (Pawn pawn in pawns) {
                 if (pawn != null && pawn.apparel != null && !pawn.RaceProps.Animal) {
-                    Universum.Utilities.Vacuum_Protection protection = Universum.Utilities.Cache.spacesuit_protection(pawn);
-                    if (protection != Universum.Utilities.Vacuum_Protection.All) {
+                    Universum.Colony.VacuumWeather.VacuumProtection protection =
+                        Universum.Cache.Utilities.VacuumDamage.CheckProtection(pawn);
+                    if (protection != Universum.Colony.VacuumWeather.VacuumProtection.All) {
                         try {
                             pawn.apparel.Wear((RimWorld.Apparel) ThingMaker.MakeThing(spacesuit_helmet), false);
                             pawn.apparel.Wear((RimWorld.Apparel) ThingMaker.MakeThing(spacesuit_armor), false);
-                        } catch { }
+                        } catch {
+                            // ignored
+                        }
                     }
                 }
                 yield return pawn;

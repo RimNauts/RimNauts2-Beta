@@ -29,7 +29,7 @@ namespace RimNauts2.Things {
         }
 
         protected virtual void _Init() {
-            _icon = Universum.Assets.GetTexture(_celestialObjectDef.icon.texturePath);
+            _icon = Universum.Loader.Assets.GetTexture(_celestialObjectDef.icon.texturePath);
 
             _description = _thingDef.description;
 
@@ -93,7 +93,7 @@ namespace RimNauts2.Things {
         }
 
         protected override void _Init() {
-            _celestialObjectDef = Universum.Defs.Loader.celestialObjects["RimNauts2_CelestialObject_Satellite_Relay"];
+            _celestialObjectDef = Universum.Loader.Defs.CelestialObjects["RimNauts2_CelestialObject_Satellite_Relay"];
             _thingDef = ThingDef.Named("RimNauts2_Module_Satellite");
 
             _label = "Relay Satellite";
@@ -133,7 +133,7 @@ namespace RimNauts2.Things {
         }
 
         protected override void _Init() {
-            _celestialObjectDef = Universum.Defs.Loader.celestialObjects["RimNauts2_CelestialObject_Satellite_Energy"];
+            _celestialObjectDef = Universum.Loader.Defs.CelestialObjects["RimNauts2_CelestialObject_Satellite_Energy"];
             _thingDef = ThingDef.Named("RimNauts2_Module_Satellite_Energy");
 
             _label = "Energy Relay Satellite";
@@ -175,7 +175,7 @@ namespace RimNauts2.Things {
         }
 
         protected override void _Init() {
-            _celestialObjectDef = Universum.Defs.Loader.celestialObjects["RimNauts2_CelestialObject_Satellite_EnergyBooster"];
+            _celestialObjectDef = Universum.Loader.Defs.CelestialObjects["RimNauts2_CelestialObject_Satellite_EnergyBooster"];
             _thingDef = ThingDef.Named("RimNauts2_Module_Satellite_EnergyBooster");
 
             _label = "Energy Booster Satellite";
@@ -207,7 +207,7 @@ namespace RimNauts2.Things {
         }
 
         protected override void _Init() {
-            _celestialObjectDef = Universum.Defs.Loader.celestialObjects["RimNauts2_CelestialObject_Satellite_CosmicSurveillance"];
+            _celestialObjectDef = Universum.Loader.Defs.CelestialObjects["RimNauts2_CelestialObject_Satellite_CosmicSurveillance"];
             _thingDef = ThingDef.Named("RimNauts2_Module_Satellite_CosmicSurveillance");
 
             _label = "Cosmic Surveillance Satellite";

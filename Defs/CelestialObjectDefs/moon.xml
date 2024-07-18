@@ -10,7 +10,7 @@
         <orbitEccentricityBetween>(0.0, 0.5)</orbitEccentricityBetween>
         <orbitSpreadBetween>(0.25, 0.25)</orbitSpreadBetween>
         <yOffsetBetween>(0.0, 0.0)</yOffsetBetween>
-        <orbitDirection>RIGHT</orbitDirection>
+        <orbitDirection>Right</orbitDirection>
         <axialAngleBetween>(0.0, 180.0)</axialAngleBetween>
         <spinRotationSpeedBetween>(0.001, 0.05)</spinRotationSpeedBetween>
         <inclinationAngleBetween>(0.1, 30.0)</inclinationAngleBetween>
@@ -45,7 +45,7 @@
         <orbitEccentricityBetween>(0.1, 0.6)</orbitEccentricityBetween>
         <orbitSpreadBetween>(0.30, 0.30)</orbitSpreadBetween>
         <yOffsetBetween>(0.0, 0.0)</yOffsetBetween>
-        <orbitDirection>RIGHT</orbitDirection>
+        <orbitDirection>Right</orbitDirection>
         <axialAngleBetween>(5.0, 175.0)</axialAngleBetween>
         <spinRotationSpeedBetween>(0.002, 0.045)</spinRotationSpeedBetween>
         <inclinationAngleBetween>(0.5, 25.0)</inclinationAngleBetween>

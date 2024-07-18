@@ -26,8 +26,8 @@ namespace RimNauts2.Things {
                 action = new Action(generate_moon)
             };
             if (!DebugSettings.godMode) {
-                int total_moons = Universum.Game.MainLoop.instance.GetTotal(Universum.Defs.Loader.celestialObjects[Props.celestialObjectDefName]);
-                int total_satellites = Universum.Game.MainLoop.instance.GetTotal(Universum.Defs.Loader.celestialObjects["RimNauts2_CelestialObject_Satellite_Relay"]);
+                int total_moons = Universum.Game.MainLoop.instance.GetTotal(Universum.Loader.Defs.CelestialObjects[Props.celestialObjectDefName]);
+                int total_satellites = Universum.Game.MainLoop.instance.GetTotal(Universum.Loader.Defs.CelestialObjects["RimNauts2_CelestialObject_Satellite_Relay"]);
                 if (total_satellites < (total_moons + 1) * 2) {
                     int diff = (total_moons + 1) * 2 - total_satellites;
                     cmd.Disable(diff.ToString() + " " + Props.failMessage);
@@ -37,10 +37,10 @@ namespace RimNauts2.Things {
         }
 
         public void generate_moon() {
-            int new_moon_tile_id = Universum.World.Generator.GetFreeTile();
+            int new_moon_tile_id = Universum.World.Initialization.GetFreeTile();
 
             if (new_moon_tile_id != -1) {
-                Universum.World.Generator.CreateObjectHolder(Props.celestialObjectDefName, tile: new_moon_tile_id);
+                Universum.World.Initialization.CreateObjectHolder(Props.celestialObjectDefName, tile: new_moon_tile_id);
                 Messages.Message(Props.successMessage, RimWorld.MessageTypeDefOf.PositiveEvent, true);
             } else {
                 Logger.print(
